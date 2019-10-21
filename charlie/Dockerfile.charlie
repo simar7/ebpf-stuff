@@ -1,0 +1,5 @@
+FROM busybox:latest
+
+COPY charlie.bin /
+
+CMD ["/charlie.bin"]
