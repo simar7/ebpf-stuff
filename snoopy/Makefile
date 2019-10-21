@@ -1,5 +1,5 @@
 binary:
-	GOOS=linux go build -o snoopy ./execsnoop.go ./output.go
+	GOOS=linux go build -o snoopy.bin ./execsnoop.go ./output.go
 
 container:
 	docker build -f Dockerfile.snoopy -t snoopy:latest .
@@ -12,4 +12,4 @@ run:
 	docker run --priviledged charlie:latest
 
 clean:
-	rm -f snoopy
+	rm -f snoopy.bin

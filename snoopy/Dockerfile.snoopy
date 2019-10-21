@@ -1,5 +1,5 @@
 FROM busybox
 
-COPY snoopy /
+COPY snoopy.bin /
 
-CMD ["/snoopy", "-t", "l", "bash"]
+CMD ["/snoopy.bin", "-t", "l", "bash"]
