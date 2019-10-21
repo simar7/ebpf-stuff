@@ -1,0 +1,5 @@
+FROM busybox
+
+COPY snoopy /
+
+CMD ["/snoopy", "-t", "l", "bash"]
