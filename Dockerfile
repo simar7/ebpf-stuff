@@ -1,4 +1,4 @@
-FROM scratch
+FROM busybox:latest
 
 COPY helloworld /
 
