@@ -8,13 +8,15 @@ import (
 	"os/exec"
 )
 
-func cmdRun(args []string) {
+func cmdRun(args []string) error {
 	cmd := exec.Command(args[0], args[1:]...)
 	_, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Println("cmd.Run() returned an error: ", err)
+		return err
 	}
 	//fmt.Println("combined output: ", string(out))
+	return nil
 }
 
 func writeFile(dir string, contents string) *os.File {
@@ -55,5 +57,8 @@ func main() {
 	}
 
 	// Exec a command inside
-	cmdRun([]string{"/bin/sh"})
+	log.Println("spawning a new shell within the container...")
+	if err := cmdRun([]string{"/bin/sh"}); err == nil {
+		log.Println("shell successfully spawned.")
+	}
 }
